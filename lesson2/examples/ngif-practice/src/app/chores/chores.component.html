@@ -2,6 +2,7 @@
     <h3>Chores</h3>
     <ul>
         <li *ngFor = 'let chore of chores'>{{chore}}</li>
+        <p style="color: fuchsia" *ngIf="chores.length > finishedChores.length">Work Harder!</p>
     </ul>
 </div>
 <hr>
@@ -9,6 +10,10 @@
     <h3>Done Chores</h3>
     <ul>
         <li *ngFor = 'let done of finishedChores'>{{done}}</li>
+        <img src='https://media.gettyimages.com/id/544848237/photo/sunset-in-st-louis-missouri.jpg?s=612x612&w=gi&k=20&c=1s9qPifQHJxAqM6grXdc2TMdOJUxZUgTMVQnkebfnYE=' alt="image" *ngIf="chores.length === 0 || finishedChores.length >= chores.length; else allowance">
+        <ng-template #allowance>
+            <p>No Allowance Yet</p>
+        </ng-template>
     </ul>
 </div>
 <hr>
